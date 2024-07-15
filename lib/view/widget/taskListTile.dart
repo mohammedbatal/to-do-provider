@@ -15,7 +15,10 @@ class _TaskListTileState extends State<TaskListTile> {
   Widget build(BuildContext context) {
     final result = Provider.of<TaskData>(context);
     if (result.tasks.isEmpty) {
-      return CircularProgressIndicator();
+      return Center(
+          child: CircularProgressIndicator(
+        color: Colors.indigo[400],
+      ));
     } else {
       return ListView.builder(
         itemCount: result.tasks.length,
@@ -46,15 +49,3 @@ class _TaskListTileState extends State<TaskListTile> {
     }
   }
 }
-              // context.read<TaskData>().deleteDio(index + 1);
-
-
-
-
-
-  // factory Task.fromMap(Map<String, dynamic> map) {
-  //   return Task(
-  //     name: map['taskTitle'] as String,
-  //     isdonee: map['isDone'] as bool,
-  //   );
-  // }

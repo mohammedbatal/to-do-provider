@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_provider/model/task_data.dart';
+import 'package:to_do_provider/res/app_testStyle.dart';
 
 class Addtaskscreen extends StatelessWidget {
   const Addtaskscreen({
@@ -18,13 +19,7 @@ class Addtaskscreen extends StatelessWidget {
       padding: const EdgeInsets.all(30),
       child: Column(
         children: [
-          Text(
-            'Add Task',
-            style: TextStyle(
-                fontSize: 30,
-                color: Colors.indigo[400],
-                fontWeight: FontWeight.bold),
-          ),
+          Text('Add Task', style: textStyleAddTask),
           TextField(
             autocorrect: true,
             textAlign: TextAlign.center,
@@ -35,7 +30,6 @@ class Addtaskscreen extends StatelessWidget {
           const SizedBox(height: 20),
           InkWell(
             child: Container(
-              margin: const EdgeInsets.only(top: 5),
               alignment: Alignment.center,
               height: 70,
               width: MediaQuery.of(context).size.width,
@@ -43,13 +37,7 @@ class Addtaskscreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.teal[400],
               ),
-              child: const Text(
-                "Add",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
+              child: const Text("Add", style: addTextStyle),
             ),
             onTap: () async {
               context.read<TaskData>().addDataToApi(

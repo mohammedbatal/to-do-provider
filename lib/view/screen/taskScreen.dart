@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_provider/model/task_data.dart';
+import 'package:to_do_provider/res/app_testStyle.dart';
 import 'package:to_do_provider/view/screen/addTaskScreen.dart';
 import 'package:to_do_provider/view/widget/taskListTile.dart';
 
@@ -11,7 +12,6 @@ class TaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var height = MediaQuery.of(context).size.height;
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
@@ -44,18 +44,12 @@ class TaskScreen extends StatelessWidget {
                   size: 40,
                   color: Colors.white,
                 ),
-                Text(
-                  'ToDayDo',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold),
-                )
+                Text('ToDayDo', style: textStyleToDay)
               ],
             ),
             Text(
               "${Provider.of<TaskData>(context).tasks.length} Task",
-              style: const TextStyle(fontSize: 18, color: Colors.white),
+              style: textStyleNumberTask,
             ),
             const SizedBox(height: 20),
             Expanded(
@@ -65,7 +59,7 @@ class TaskScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20)),
-                child: TaskListTile(),
+                child: const TaskListTile(),
               ),
             ),
           ],
